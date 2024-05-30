@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  db:
+    image: postgres
+    container_name: nest-drizzle-db
+    restart: always
+    user: postgres
+    environment:
+      POSTGRES_PASSWORD: local
+    healthcheck:
+      test: ["CMD", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"

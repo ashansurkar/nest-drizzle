@@ -4,7 +4,7 @@ import { Pool } from 'pg';
 import { PG_CONNECTION } from '../constants';
 import * as schema from './schema';
 import { ConfigService } from '@nestjs/config';
-
+import { NodePgDatabase } from 'drizzle-orm/node-postgres';
 @Module({
   providers: [
     {
@@ -14,10 +14,10 @@ import { ConfigService } from '@nestjs/config';
         const connectionString = configService.get<string>('DATABASE_URL');
         const pool = new Pool({
           connectionString,
-          ssl: true,
+          // ssl: true,
         });
 
-        return drizzle(pool, { schema });
+        return drizzle(pool, { schema }) as NodePgDatabase<typeof schema>;
       },
     },
   ],
