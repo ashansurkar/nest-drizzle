@@ -5,15 +5,8 @@
     {
       "idx": 0,
       "version": "6",
-      "when": 1717043122500,
-      "tag": "0000_groovy_snowbird",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "6",
-      "when": 1717043314830,
-      "tag": "0001_melodic_joshua_kane",
+      "when": 1717048497296,
+      "tag": "0000_bouncy_swordsman",
       "breakpoints": true
     }
   ]

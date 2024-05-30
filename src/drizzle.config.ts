@@ -1,12 +1,9 @@
-import * as dotenv from 'dotenv';
 import type { Config } from 'drizzle-kit';
 
-dotenv.config();
-// eslint-disable-next-line no-restricted-syntax
 export default {
-  schema: './src/drizzle/schema.ts',
-  out: './src/drizzle/migrations',
-  dialect: 'postgresql',
+  schema: './src/drizzle/schema.ts', // Path to schema file
+  out: './src/drizzle/migrations', // Path to output directory
+  dialect: 'postgresql', // Database dialect
   dbCredentials: {
     url: process.env.DATABASE_URL,
   },

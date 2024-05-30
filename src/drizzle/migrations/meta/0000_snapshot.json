@@ -1,5 +1,5 @@
 {
-  "id": "63caa775-bce6-49d0-ba43-fc62fff97d7a",
+  "id": "f9dfc103-c78f-444d-a113-74b85e82fbe4",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "6",
   "dialect": "postgresql",
@@ -39,8 +39,8 @@
         "email": {
           "name": "email",
           "type": "text",
-          "primaryKey": true,
-          "notNull": true
+          "primaryKey": false,
+          "notNull": false
         },
         "role_id": {
           "name": "role_id",
@@ -52,7 +52,15 @@
       "indexes": {},
       "foreignKeys": {},
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {}
+      "uniqueConstraints": {
+        "user_email_unique": {
+          "name": "user_email_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "email"
+          ]
+        }
+      }
     }
   },
   "enums": {},
