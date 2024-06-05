@@ -1,7 +1,7 @@
 import { integer, serial, text, pgTable } from 'drizzle-orm/pg-core';
 import { relations } from 'drizzle-orm';
 
-export const users = pgTable('user', {
+export const users = pgTable('users', {
   id: serial('id').primaryKey(),
   email: text('email').unique(),
   role_id: integer('role_id'),
