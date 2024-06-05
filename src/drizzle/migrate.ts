@@ -9,14 +9,6 @@ import { exit } from 'process';
 import * as allSchema from './schema';
 
 dotenv.config();
-let dbCreds = {
-  user: process.env.DB_USER || process.env.username,
-  host: process.env.DB_HOST,
-  database: process.env.DB_NAME,
-  password: process.env.DB_PASS,
-  port: 5432,
-  ssl: false,
-};
 
 (async () => {
   const pool = new pg.Pool({
@@ -29,8 +21,13 @@ let dbCreds = {
     },
   });
 
+  // Look for migrations in the src/drizzle/migrations folder
   const migrationPath = path.join(process.cwd(), 'src/drizzle/migrations');
+
+  // Run the migrations
   await migrate(db, { migrationsFolder: migrationPath });
+
+  // Insert default roles
   for (const role of ['Super Admin', 'Admin', 'User', 'Guest']) {
     const existingUserRole = await db
       ?.select({
