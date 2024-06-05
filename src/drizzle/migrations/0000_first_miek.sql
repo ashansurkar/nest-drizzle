@@ -3,9 +3,9 @@ CREATE TABLE IF NOT EXISTS "user_role" (
 	"name" text
 );
 --> statement-breakpoint
-CREATE TABLE IF NOT EXISTS "user" (
+CREATE TABLE IF NOT EXISTS "users" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"email" text,
 	"role_id" integer,
-	CONSTRAINT "user_email_unique" UNIQUE("email")
+	CONSTRAINT "users_email_unique" UNIQUE("email")
 );
